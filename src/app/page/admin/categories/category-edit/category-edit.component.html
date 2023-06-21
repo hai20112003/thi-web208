@@ -1,0 +1,22 @@
+<div class="product-add">
+  <h1>Sửa danh mục</h1>
+  <form
+    action=""
+    class="form"
+    [formGroup]="formCategories"
+    (ngSubmit)="onHandleSubmit()"
+  >
+    <div class="id-none">
+      <input type="text" class="" class="_id" formControlName="_id" />
+    </div>
+    <div class="form-control">
+      <label for="">Tên:</label>
+      <input type="text" class="name" formControlName="name" />
+    </div>
+    <div class="form-control">
+      <div class="btn">
+        <input width="300px" class="btn-add" type="submit" value="Sửa" />
+      </div>
+    </div>
+  </form>
+</div>

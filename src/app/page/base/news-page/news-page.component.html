@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="breadCrumbs">
+    <p>Trang chủ</p>
+    <span class="line">Tin tức</span>
+  </div>
+  <div class="news">
+    <div class="news-sidebar">
+      <app-model-news />
+      <app-advertisement />
+    </div>
+    <div class="news-main">
+      <h1 class="news-main-title">tin tức</h1>
+      <div class="news-main-content" *ngFor="let cardItem of cardNews | paginate: { itemsPerPage: 5, currentPage: p, totalItems: totalLength}">
+        <div class="news-main-content-img">
+          <a href="" [routerLink]="['/news/', cardItem._id]">
+            <img [src]="cardItem.image" alt="" />
+          </a>
+        </div>
+        <div class="news-main-content-info">
+          <h3 class="news-main-content-info-name">
+            <a [routerLink]="['/news/', cardItem._id]" class="news-main-content-info-name-link">
+              {{ cardItem.name }}
+            </a>
+          </h3>
+          <div class="news-main-content-info-news-details">
+            <span>
+              <i class="fa-solid fa-user fa-xs"></i> {{ cardItem.author }}
+            </span>
+            <span
+              ><i class="fa-solid fa-calendar-days"></i
+              >{{ cardItem.date }}</span
+            >
+          </div>
+          <div class="news-main-content-info-summary">
+            {{ cardItem.describe }}
+          </div>
+          <div class="news-main-content-info-viewmore">
+            <a class="news-main-content-info-viewmore-link" [routerLink]="['/news/', cardItem._id]"
+              >Đọc thêm <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="pagination pagination-custom">
+        <app-custom-pagination (pageChange)="p = $event"></app-custom-pagination>
+      </div>
+    </div>
+  </div>
+</div>

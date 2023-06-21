@@ -1,0 +1,135 @@
+<div class="header">
+  <div class="header-topbar">
+    <div class="header-topbar-left">
+      <p>Chào mừng bạn đã đến với Big Shoe !</p>
+    </div>
+    <div class="header-topbar-right">
+      <span class="fa-brands fa-facebook-f"></span>
+      <span class="fa-brands fa-twitter"></span>
+      <span class="fa-brands fa-google-plus-g"></span>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav-row">
+    <div class="nav-row-left">
+      <a routerLink="/">
+        <img
+          src="https://bizweb.dktcdn.net/100/091/132/themes/877468/assets/logo.png?1676015131562"
+          alt=""
+        />
+      </a>
+    </div>
+    <div class="nav-row-center">
+      <div class="nav-row-center">
+        <ul class="nav-row-center-ul">
+          <li class="title">Xu hướng tìm kiếm</li>
+          <li class="li"><a routerLink="">converse</a></li>
+          <li class="li"><a routerLink="">giày da</a></li>
+          <li class="li"><a routerLink="">giày thời trang nam</a></li>
+        </ul>
+      </div>
+      <div class="nav-row-center-form">
+        <form action="" class="row-center-form-content">
+          <input
+            class="form-content-input"
+            placeholder="Tìm kiếm..."
+            type="text"
+          />
+          <span></span>
+          <button class="form-content-btn">Tìm kiếm</button>
+        </form>
+      </div>
+    </div>
+    <div class="nav-row-right">
+      <div class="nav-row-right-signupin">
+        <div class="nav-row-right-signupin-logo">
+          <img
+            src="https://bizweb.dktcdn.net/100/091/132/themes/877468/assets/account.png?1662372685327"
+            alt=""
+          />
+        </div>
+        <ul *ngIf="!userInfo || !userInfo.accessToken" class="nav-row-right-signupin-text">
+          <a routerLink="login" class="nav-row-right-signupin-text-li "
+            >Đăng nhập</a
+          >
+          <span>/</span>
+          <a routerLink="signup" class="nav-row-right-signupin-text-li "
+            >Đăng ký</a
+          >
+        </ul>
+        <ul *ngIf="userInfo && userInfo.accessToken" class="nav-row-right-signupin-text">
+          <a   class="nav-row-right-signupin-text-li user"
+            >{{userInfo.user.name}}</a>
+          <span>/</span>
+          <a (click)="onHandleLogout()" class="nav-row-right-signupin-text-li logout"
+            >Đăng xuất</a
+          >
+        </ul>
+      </div>
+      <div class="nav-row-right-cart">
+        <div class="nav-row-right-cart-logo">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <p>0</p>
+        </div>
+        <ul class="nav-row-right-text">
+          <li class="nav-row-right-text-li"><a href="/cart">Giỏ hàng</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="menu">
+  <label for="menu" class="mobie-toggle">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  <input type="checkbox" id="menu" />
+  <nav class="nav">
+    <div>
+      <ul>
+        <li class="line">
+          <i class="fa-solid fa-house"></i><a routerLink="">Trang chủ</a>
+        </li>
+        <li>
+          <a routerLink="introduce">Về chúng tôi</a>
+        </li>
+        <li>
+          <a routerLink="products"> Sản phẩm </a>
+          <label class="fa-solid fa-caret-down"></label>
+          <div class="header-menu-child">
+            <ul class="header-menu-child-list">
+              <li class="li" *ngFor="let item of category"><a routerLink="">{{item.name}}</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a routerLink="news">Tin tức</a>
+        </li>
+        <li><a routerLink="contact">liên hệ</a></li>
+      </ul>
+      <div class="nav-contact">
+        <i class="fa-solid fa-phone-volume"></i>
+        <a routerLink="">Hotline: <span>1900 6750</span></a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-row-right-cart">
+    <div class="nav-row-right-cart-logo">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <p>0</p>
+    </div>
+  </div>
+</div>
+<div class="mobie-input">
+  <div class="mobie-tk">
+    <input class="search" type="text" placeholder="Tìm kiếm..." />
+    <button class="btn-search">
+      <span class="fa-solid fa-magnifying-glass"></span>
+    </button>
+  </div>
+  <div class="mobie-hotline">
+    <i class="fa-solid fa-phone-volume"></i>
+  </div>
+</div>

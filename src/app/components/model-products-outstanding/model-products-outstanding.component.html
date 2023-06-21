@@ -1,0 +1,35 @@
+<div class="productsOutstanding">
+  <div class="title">
+    <div>
+      <div>SẢN PHẨM NỔI BẬT</div>
+    </div>
+  </div>
+  <div class="listProductsOutstanding">
+    <div
+      *ngFor="let item of first4Products"
+      class="article-slider"
+      [routerLink]="['/products/', item._id]"
+    >
+      <img [src]="item.image" alt="" />
+      <div class="Groud">
+        <p class="content">{{ item.name }}</p>
+        <p class="priceNew">
+          {{
+            item.priceNew.toLocaleString("vi-VN", {
+              style: "currency",
+              currency: "VND"
+            })
+          }}
+        </p>
+        <p class="priceOld" *ngIf="item.priceOld">
+          {{
+            item.priceOld.toLocaleString("vi-VN", {
+              style: "currency",
+              currency: "VND"
+            })
+          }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

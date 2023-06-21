@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="title">
+    <p>Trang chủ</p>
+    <span class="line">Giỏ hàng</span>
+  </div>
+  <div [ngClass]="openCart ? 'block-false' : 'block-true'">
+    <div class="item-empty">
+      <i class="fa-sharp fa-solid fa-bag-shopping"></i>
+      <span>không có sản phẩm nào trong giỏ hàng</span>
+    </div>
+  </div>
+  <div [ngClass]="openCart ? 'block-true' : 'block-false'">
+    <table>
+      <tbody>
+        <tr *ngFor="let item of card.products">
+          <td>
+            <img src="{{ item.image }}" alt="" />
+          </td>
+          <td>
+            <a href="">{{ item.name }}</a>
+          </td>
+          <td class="price">
+            <span>{{ item.price }}</span>
+          </td>
+          <td>
+            <div class="quantity">
+              <button (click)="minus(item.id)">-</button>
+              <div>
+                <span>{{ item.quantity }}</span>
+              </div>
+              <button (click)="plus(item.id)">+</button>
+            </div>
+          </td>
+          <td class="price">
+            <span>{{ item.priceNew }}</span>
+          </td>
+          <td><i class="fa-solid fa-trash"></i></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5">Tổng tiền</td>
+          <td class="price">
+            <span>{{ this.card.total }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="5">
+            <button class="btn-continued">Tiếp tục mua hàng</button>
+          </td>
+          <td>
+            <button class="btn-pay">Thanh toán sản phẩm</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

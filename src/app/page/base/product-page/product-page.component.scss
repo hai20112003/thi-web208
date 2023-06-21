@@ -1,0 +1,209 @@
+@import "../../../../../public/scss/utils/functions.scss";
+@import "../../../../../public/scss/utils/variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+div {
+  background-color: $Cultured;
+
+  .breadCrumbs {
+    @include Flex(flex, flex-start, center);
+    @include Gap(5px, 0);
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 1rem;
+    font-family: $Geologica;
+    border-bottom: 1px solid #ebebeb;
+    @include max-screen($xxl) {
+      max-width: 900px;
+    }
+    @include max-screen($lg) {
+      max-width: 600px;
+    }
+    @include max-screen($s) {
+      max-width: 400px;
+    }
+    p {
+      @include Size(14px, 400, normal);
+      cursor: pointer;
+      &:hover {
+        color: $CarminePink;
+      }
+    }
+    span {
+      @include Size(14px, 400, normal);
+      cursor: pointer;
+      &::before {
+        content: "\f101";
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-right: 5px;
+        color: #ccc;
+      }
+      &:hover {
+        color: $CarminePink;
+      }
+    }
+    .line {
+      color: $CarminePink;
+    }
+  }
+  .main {
+    background-color: $Cultured;
+    font-family: $Geologica;
+    .homepage {
+      @include Flex(flex, flex-start, flex-start);
+      @include Gap(30px, 30px);
+      padding: 20px 0;
+      max-width: 1200px;
+      margin: auto;
+      @include max-screen($xxl) {
+        @include Flex(flex, flex-start, center);
+        flex-direction: column-reverse;
+      }
+      &-aside {
+        max-width: 300px;
+        @include Flex(flex, center, flex-start);
+        @include Gap(30px, 30px);
+        flex-direction: column;
+        @include max-screen($xxl) {
+          display: none;
+        }
+        app-model-menu-products {
+          width: 100%;
+        }
+        app-model-support {
+          width: 100%;
+        }
+        app-model-products-outstanding {
+          width: 100%;
+        }
+        app-advertisement {
+          width: 100%;
+        }
+      }
+      &-main {
+        width: 100%;
+        @include Flex(flex, center, center);
+        @include Gap(30px, 30px);
+        flex-direction: column;
+        .productsSale {
+          .title {
+            padding: 10px 15px;
+            position: relative;
+            border-top: 2px solid $CarminePink;
+            max-width: 870px;
+            margin: 0 auto;
+            @include max-screen($lg) {
+              width: 570px;
+            }
+            @include max-screen($s) {
+              width: 370px;
+            }
+            h2 {
+              @include Size(1em, 600, 30px);
+              text-transform: uppercase;
+            }
+          }
+          .arrange {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            @include Flex(flex, flex-start, center);
+            p {
+              font-size: 0.8rem;
+            }
+            select {
+              margin-left: 10px;
+              width: 180px !important;
+              height: 34px !important;
+              float: left;
+              appearance: none;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              background-image: none;
+              text-align: center;
+              outline: none;
+              border: 0.5px solid $VenetianRed;
+              option {
+                padding: 10px 40px;
+              }
+            }
+          }
+          .article {
+            @include Gird(grid, 4);
+            width: 870px;
+            margin: 0 auto;
+            background-color: white;
+            @include max-screen($lg) {
+              @include Gird(grid, 3);
+              width: 570px;
+            }
+            @include max-screen($s) {
+              @include Gird(grid, 2);
+              width: 370px;
+            }
+            &-slider {
+              @include Flex(flex, space-between, flex-start);
+              flex-direction: column;
+              border: 1px solid $BrightGray;
+              background-color: white;
+              width: 100%;
+              .image {
+                background-color: white;
+                position: relative;
+                cursor: pointer;
+                img {
+                  width: 187px;
+                  margin: 15px;
+                  @include max-screen($lg) {
+                    width: 160px;
+                  }
+                }
+              }
+              .content {
+                @include Size(14px, 400, 20px);
+                color: #333;
+                margin: 0 15px;
+                cursor: pointer;
+                &:hover {
+                  color: $CarminePink;
+                }
+              }
+              .price {
+                @include Flex(flex, space-between, center);
+                @include Gap(5px, 0);
+                background-color: white;
+                padding: 15px;
+                &-new {
+                  @include Size(18px, 700, 20px);
+                  color: $CarminePink;
+                  &::after {
+                    @include Size(18px, 700, 20px);
+                    color: $CarminePink;
+                  }
+                }
+                &-old {
+                  @include Size(16px, 400, 20px);
+                  text-decoration: line-through;
+                  color: #ababab;
+                  &::after {
+                    @include Size(16px, 400, 20px);
+                    color: #ababab;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

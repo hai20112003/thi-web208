@@ -1,0 +1,87 @@
+@import "../../../../../public/scss/utils/functions.scss";
+@import "../../../../../public/scss/utils/variables.scss";
+
+.breadCrumbs {
+  background-color: $Cultured;
+  div {
+    @include Flex(flex, flex-start, center);
+    @include Gap(5px, 0);
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: $Geologica;
+    border-bottom: 1px solid #ebebeb;
+    @include max-screen($xxl) {
+      max-width: 900px;
+    }
+    @include max-screen($lg) {
+      max-width: 600px;
+    }
+    @include max-screen($s) {
+      max-width: 400px;
+    }
+    p {
+      @include Size(14px, 400, normal);
+      cursor: pointer;
+      &:hover {
+        color: $CarminePink;
+      }
+    }
+    span {
+      @include Size(14px, 400, normal);
+      cursor: pointer;
+      &::before {
+        content: "\f101";
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-right: 5px;
+        color: #ccc;
+      }
+      &:hover {
+        color: $CarminePink;
+      }
+    }
+    .line {
+      color: $CarminePink;
+    }
+  }
+}
+
+.content-page {
+  @include Size(14px, 400, normal);
+  background-color: $Cultured;
+  font-family: $Geologica;
+
+  div {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #333;
+    padding: 20px 0px;
+    text-align: justify;
+    .title {
+      @include Size(1.5em, 700, normal);
+      &:hover {
+        color: $CarminePink;
+        cursor: pointer;
+      }
+    }
+    .text-weight {
+      font-weight: 600;
+    }
+    p {
+      @include Size(14px, 400, 25px);
+    }
+    @include max-screen($xxl) {
+      max-width: 900px;
+    }
+    @include max-screen($lg) {
+      max-width: 600px;
+    }
+    @include max-screen($s) {
+      max-width: 370px;
+    }
+  }
+}

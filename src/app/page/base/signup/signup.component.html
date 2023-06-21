@@ -1,0 +1,155 @@
+<div>
+  <div class="breadCrumbs">
+    <p>Trang chủ</p>
+    <span class="line">Đăng ký tài khoản</span>
+  </div>
+  <div class="signup">
+    <h3>ĐĂNG KÝ TÀI KHOẢN</h3>
+    <form
+      class="signup-top"
+      action=""
+      [formGroup]="formSignUp"
+      (ngSubmit)="onHandleSubmit()"
+    >
+      <div class="action item-1">
+        <label for="">Họ và tên</label>
+        <input
+          type="text"
+          name="name"
+          formControlName="name"
+          placeholder="Họ"
+        />
+        <div
+          *ngIf="
+            formSignUp.get('name')?.hasError('required') &&
+            (formSignUp.get('name')?.touched || formSignUp.get('name')?.dirty)
+          "
+        >
+          Họ và Tên không được để trống
+        </div>
+      </div>
+      <div class="action item-2">
+        <label for="">Email:</label>
+        <input
+          type="email"
+          name="email"
+          formControlName="email"
+          placeholder="Email"
+        />
+        <div
+          *ngIf="
+            formSignUp.get('email')?.hasError('required') &&
+            (formSignUp.get('email')?.touched || formSignUp.get('email')?.dirty)
+          "
+        >
+          Email không được để trống
+        </div>
+        <div
+          *ngIf="
+            formSignUp.get('email')?.hasError('email') &&
+            (formSignUp.get('email')?.touched || formSignUp.get('email')?.dirty)
+          "
+        >
+          Email không đúng đính dạng
+        </div>
+      </div>
+      <div class="action item-3">
+        <label for="">Mật Khẩu:</label>
+        <input
+          type="password"
+          name="password"
+          formControlName="password"
+          placeholder="Mật Khẩu"
+        />
+        <div
+          *ngIf="
+            formSignUp.get('password')?.hasError('required') &&
+            (formSignUp.get('password')?.touched ||
+              formSignUp.get('password')?.dirty)
+          "
+        >
+          Mật khẩu không được để trống
+        </div>
+        <div
+          *ngIf="
+            formSignUp.get('password')?.hasError('minlength') &&
+            (formSignUp.get('password')?.touched ||
+              formSignUp.get('password')?.dirty)
+          "
+        >
+          Mật khẩu ít nhất 6 ký tự
+        </div>
+      </div>
+      <div class="action item-4">
+        <label for="">Số điện thoại:</label>
+        <input
+          type="text"
+          name="phone"
+          formControlName="phone"
+          placeholder="Số điện thoại"
+        />
+        <div
+          *ngIf="
+            formSignUp.get('phone')?.hasError('required') &&
+            (formSignUp.get('phone')?.touched || formSignUp.get('phone')?.dirty)
+          "
+        >
+          Số điện thoại không được để trống
+        </div>
+      </div>
+      <div class="action item-5">
+        <label for="">Nhập lại mật khẩu</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          formControlName="confirmPassword"
+          placeholder="Nhập lại mật khẩu"
+        />
+        <div
+          *ngIf="
+            formSignUp.hasError('notMatch') &&
+            (formSignUp.get('confirmPassword')?.touched ||
+              formSignUp.get('confirmPassword')?.dirty)
+          "
+          class="error-message"
+        >
+          Mật khẩu không trùng khớp
+        </div>
+        <div
+          *ngIf="
+          formSignUp.get('confirmPassword')?.hasError('required') &&
+          (formSignUp.get('confirmPassword')?.touched || formSignUp.get('confirmPassword')?.dirty)
+          "
+          class="error-message"
+        >
+          Mật khẩu không được để trống
+        </div>
+      </div>
+      <div class="btn item-6">
+        <button class="btn-dk" type="submit">
+          <span class="fa-solid fa-key"></span>Đăng Ký
+        </button>
+        <button
+          class="btn-dk"
+          [routerLink]="['/login']"
+          [queryParamsHandling]="'preserve'"
+        >
+          <span class="fa-solid fa-unlock-keyhole"></span>Đăng Nhập
+        </button>
+      </div>
+    </form>
+    <div class="signup-bottom">
+      <div class="title">Hoặc đăng nhập bằng</div>
+      <div>
+        <button class="face" href="">
+          <div><i class="fa-brands fa-facebook"></i></div>
+          <span>Facebook</span>
+        </button>
+        <button class="gg" href="">
+          <div><i class="fa-brands fa-google"></i></div>
+          <span>Google</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

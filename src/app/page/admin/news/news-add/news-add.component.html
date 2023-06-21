@@ -1,0 +1,106 @@
+<div class="product-add">
+  <h1>Thêm bài viết</h1>
+  <form
+    action=""
+    class="form"
+    [formGroup]="formNews"
+    (ngSubmit)="onHandleSubmit()"
+  >
+    <div class="form-control">
+      <label for="">Tên bài viết:</label>
+      <input type="text" class="name" formControlName="name" />
+      <div></div>
+      <div
+        class="error"
+        *ngIf="
+          formNews.get('name')?.hasError('required') &&
+          (formNews.get('name')?.touched || formNews.get('name')?.dirty)
+        "
+      >
+        Tên không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="">Tên tác giả:</label>
+      <input type="text" class="author" formControlName="author" />
+      <div></div>
+      <div
+        class="error"
+        *ngIf="
+          formNews.get('author')?.hasError('required') &&
+          (formNews.get('author')?.touched || formNews.get('author')?.dirty)
+        "
+      >
+        Tên tác giả không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="">Ảnh</label>
+      <input type="text" class="image" formControlName="image" />
+      <div></div>
+      <div
+        class="error"
+        *ngIf="
+          formNews.get('image')?.hasError('required') &&
+          (formNews.get('image')?.touched || formNews.get('image')?.dirty)
+        "
+      >
+        Ảnh không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="">Ngày đăng:</label>
+      <input type="date" class="date" formControlName="date" />
+      <div></div>
+      <div
+        class="error"
+        *ngIf="
+          formNews.get('date')?.hasError('required') &&
+          (formNews.get('date')?.touched || formNews.get('date')?.dirty)
+        "
+      >
+        Ngày đăng không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="">Mô tả:</label>
+      <input type="text" class="describe" formControlName="describe" />
+      <div></div>
+      <div
+        class="error"
+        *ngIf="
+          formNews.get('describe')?.hasError('required') &&
+          (formNews.get('describe')?.touched || formNews.get('describe')?.dirty)
+        "
+      >
+        Mô tả không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="">Chi tiết:</label>
+      <textarea
+        name="description"
+        id=""
+        cols="30"
+        rows="10"
+        formControlName="description"
+      ></textarea>
+      <div></div>
+      <div
+        class="error"
+        *ngIf="
+          formNews.get('description')?.hasError('required') &&
+          (formNews.get('description')?.touched ||
+            formNews.get('description')?.dirty)
+        "
+      >
+        Chi tiết không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <div class="btn">
+        <input width="300px" class="btn-add" type="submit" value="Thêm" />
+      </div>
+    </div>
+  </form>
+</div>

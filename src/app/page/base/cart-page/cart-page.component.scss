@@ -1,0 +1,371 @@
+@import "../../../../../public/scss/utils/functions.scss";
+@import "../../../../../public/scss/utils/variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.title {
+  @include Flex(flex, flex-start, center);
+  @include Gap(5px, 0);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 0 12px 0;
+  font-family: $Geologica;
+  border-bottom: 1px solid #ebebeb;
+  @include max-screen($xxl) {
+    max-width: 900px;
+  }
+  @include max-screen($lg) {
+    max-width: 600px;
+  }
+  @include max-screen($s) {
+    max-width: 400px;
+  }
+  p {
+    @include Size(14px, 400, normal);
+    cursor: pointer;
+    &:hover {
+      color: $CarminePink;
+    }
+  }
+  span {
+    @include Size(14px, 400, normal);
+    cursor: pointer;
+    &::before {
+      content: "\f101";
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin-right: 5px;
+      color: #ccc;
+    }
+    &:hover {
+      color: $CarminePink;
+    }
+  }
+  .line {
+    color: $CarminePink;
+  }
+}
+.block-false {
+  display: none;
+  font-family: $Geologica;
+  margin: 0 auto;
+  .item-empty {
+    padding: 90px;
+    max-width: 1200px;
+    min-height: calc(100vh - 850px);
+    margin: 0 auto;
+    @include Flex(Flex, center, center);
+    flex-direction: column;
+    i {
+      color: $CarminePink;
+      font-size: 80px;
+      margin: 20px 0px;
+    }
+    span {
+      font-family: $Geologica;
+      margin-bottom: 20px;
+    }
+  }
+  .table {
+    max-width: 1200px;
+    margin: 0 auto;
+    @include Flex(flex, space-around, center);
+    border: 1px solid $BrightGray;
+    .img-item {
+      border-right: 1px solid $BrightGray;
+      img {
+        max-width: 100px;
+        max-height: 100px;
+      }
+    }
+    .name-item {
+      & a {
+        color: black;
+        text-decoration: none;
+        &:hover {
+          color: $CarminePink;
+        }
+      }
+    }
+    .price-item {
+      @include Flex(flex, space-between, center);
+      color: $CarminePink;
+      & span {
+        &::after {
+          content: "đ";
+          text-decoration: underline;
+        }
+      }
+    }
+    .quantity {
+      @include Flex(Flex, center, center);
+      border-right: 1px solid $BrightGray;
+      div {
+        border: 1px solid black;
+        padding: 4px 7px;
+        max-width: 24px;
+        min-height: 30px;
+      }
+      button {
+        border: 1px solid black;
+        padding: 6px 10px;
+        background-color: white;
+        cursor: pointer;
+      }
+    }
+    .sum {
+      @include Flex(flex, space-between, center);
+      color: $CarminePink;
+      & span {
+        &::after {
+          content: "đ";
+          text-decoration: underline;
+        }
+      }
+    }
+    .remo-item {
+      i {
+        font-size: 40px;
+        color: $CarminePink;
+      }
+    }
+    @include max-screen($xxl) {
+      max-width: 900px;
+    }
+    @include max-screen($lg) {
+      max-width: 600px;
+    }
+    @include max-screen($s) {
+      max-width: 400px;
+    }
+  }
+  .total-price {
+    @include Flex(flex, flex-end, center);
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid $BrightGray;
+    padding: 20px;
+    .div {
+      border-right: 1px solid $BrightGray;
+      color: $BrightGray;
+    }
+    .number {
+      @include Flex(Flex, space-around, center);
+      margin-left: 200px;
+      color: $CarminePink;
+      & span {
+        &::after {
+          content: "đ";
+          text-decoration: underline;
+        }
+      }
+    }
+    @include max-screen($xxl) {
+      max-width: 900px;
+    }
+    @include max-screen($lg) {
+      max-width: 600px;
+    }
+    @include max-screen($s) {
+      max-width: 400px;
+    }
+  }
+  .btn-flex {
+    @include Flex(Flex, space-between, center);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px;
+    border: 1px solid $BrightGray;
+    .btn-continue {
+      padding: 8px;
+      border: 1px solid;
+      border-color: black;
+      transition: background-color ease-in-out 0.3s;
+      &:hover {
+        border-color: $CarminePink;
+        background-color: $CarminePink;
+        color: $Cultured;
+      }
+    }
+    .btn-pay {
+      padding: 8px;
+      border: 1px solid;
+      border-color: $CarminePink;
+      background-color: $CarminePink;
+      color: white;
+      transition: background-color ease-in-out 0.3s;
+      &:hover {
+        background-color: white;
+        color: red;
+      }
+    }
+    @include max-screen($xxl) {
+      max-width: 900px;
+    }
+    @include max-screen($lg) {
+      max-width: 600px;
+    }
+    @include max-screen($s) {
+      max-width: 400px;
+    }
+  }
+}
+.block-true {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px;
+  font-family: $Geologica;
+  table,
+  tr,
+  th,
+  td {
+    border: 1px solid $BrightGray;
+    border-collapse: collapse;
+  }
+  table {
+    width: 100%;
+    margin: 30px 0;
+    tbody {
+      text-align: center;
+      tr {
+        td {
+          padding: 6px 10px;
+          border-top: 1px solid $BrightGray;
+          border-right: 1px solid $BrightGray;
+          img {
+            max-width: 100px;
+            max-height: 100px;
+          }
+          .quantity {
+            @include Flex(flex, center, center);
+            button {
+              border: 1px solid;
+              padding: 5.5px;
+              background-color: white;
+              cursor: pointer;
+              &:hover {
+                background-color: $BrightGray;
+              }
+            }
+            div {
+              border-top: 1px solid black;
+              border-bottom: 1px solid black;
+              padding: 4px 6px;
+              width: 30px;
+              user-select: none;
+              -webkit-user-select: none;
+              span {
+                margin: 0 auto;
+              }
+            }
+          }
+          i {
+            font-size: 28px;
+            color: $CarminePink;
+            cursor: pointer;
+          }
+          a {
+            @include Size(15px, 400, 20px);
+            text-decoration: none;
+            color: black;
+            &:hover{
+              color: $CarminePink;
+            }
+          }
+        }
+        .price {
+          width: 100px;
+          span {
+            width: 100%;
+            color: $CarminePink;
+            &::after {
+              content: "đ";
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+    tfoot {
+      tr,
+      td {
+        text-align: right;
+        padding: 6px 10px;
+        border: 1px solid $BrightGray;
+        span {
+          color: $CarminePink;
+          &::after {
+            content: "đ";
+            text-decoration: underline;
+          }
+        }
+        .btn-continued {
+          @include Flex(flex, flex-start, center);
+          border: 2px solid black;
+          border-radius: 3px;
+          padding: 12px;
+          transition: all 0.5s;
+          background-color: white;
+          cursor: pointer;
+          &:hover {
+            color: white;
+            border-color: $CarminePink;
+            background-color: $CarminePink;
+          }
+        }
+        .btn-pay {
+          color: white;
+          border-radius: 3px;
+          border: 2px solid $CarminePink;
+          background-color: $CarminePink;
+          padding: 12px;
+          transition: all 0.5s;
+          cursor: pointer;
+          &:hover {
+            color: $CarminePink;
+            background-color: white;
+          }
+          @include max-screen($s) {
+            padding: 4px;
+            min-width: 120px;
+          }
+        }
+      }
+    }
+  }
+  @include max-screen($xxl) {
+    max-width: 900px;
+  }
+  @include max-screen($sm) {
+    max-width: 600px;
+  }
+  @include max-screen($s) {
+    overflow-x: auto;
+    max-width: 400px;
+    min-height: 100px;
+  }
+  .item-empty {
+    padding: 90px;
+    height: calc(100vh - 850px);
+    max-width: 1200px;
+    margin: 0 auto;
+    @include Flex(Flex, center, center);
+    flex-direction: column;
+    i {
+      color: $CarminePink;
+      font-size: 80px;
+      margin: 20px 0px;
+    }
+    span {
+      font-family: $Geologica;
+      margin-bottom: 20px;
+    }
+  }
+}

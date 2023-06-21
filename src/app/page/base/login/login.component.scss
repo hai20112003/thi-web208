@@ -1,0 +1,207 @@
+@import "./../../../../../public/scss/utils/functions.scss";
+@import "./../../../../../public/scss/utils/variables.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+div {
+  background-color: $Cultured;
+  padding: 10px 0px;
+  font-family: $Geologica;
+  .breadCrumbs {
+    @include Flex(flex, flex-start, center);
+    @include Gap(5px, 0);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 14px;
+    font-family: $Geologica;
+    border-bottom: 1px solid #ebebeb;
+    @include max-screen($xxl) {
+      max-width: 900px;
+    }
+    @include max-screen($lg) {
+      max-width: 600px;
+    }
+    @include max-screen($s) {
+      max-width: 400px;
+    }
+    p {
+      @include Size(14px, 400, normal);
+      cursor: pointer;
+      &:hover {
+        color: $CarminePink;
+      }
+    }
+    span {
+      @include Size(14px, 400, normal);
+      cursor: pointer;
+      &::before {
+        content: "\f101";
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-right: 5px;
+        color: #ccc;
+      }
+      &:hover {
+        color: $CarminePink;
+      }
+    }
+    .line {
+      color: $CarminePink;
+    }
+  }
+  .login {
+    @include Gird(grid, 2);
+    max-width: 1200px;
+    margin: 0 auto;
+    column-gap: 30px;
+    @include max-screen($xxl) {
+      @include Gird(grid, 1);
+      max-width: 900px;
+    }
+    @include max-screen($lg) {
+      max-width: 600px;
+    }
+    @include max-screen($s) {
+      max-width: 400px;
+    }
+    &-left {
+      margin: 0px 10px 0px 10px;
+      h3 {
+        @include Size(1.5rem, 700, 25px);
+      }
+      form {
+        .action {
+          display: flex;
+          flex-direction: column;
+          margin: 1rem 0rem;
+          label {
+            font-size: 1rem;
+            margin-bottom: 5px;
+          }
+          input {
+            @include Size(1em, 400, 1.5);
+            margin-top: 4px;
+            padding: 0.5rem 0rem 0.5rem 1rem;
+            border: 1px solid $BrightGray;
+            color: $DavyGrey;
+            outline: none;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            transition: border-color ease-in-out 0.15s,
+              box-shadow ease-in-out 0.15s;
+            &:focus {
+              box-shadow: 0 0 7px rgba(0, 225, 255, 0.3);
+            }
+          }
+          .error{
+            color: red;
+            margin-top: 10px;
+          }
+        }
+        div {
+          .btn {
+            background-color: $CharlestonGreen;
+            text-transform: uppercase;
+            transition: all ease 0.3s;
+            cursor: pointer;
+            display: inline-block;
+            border: none;
+            color: white;
+            padding: 0 20px;
+            line-height: 40px;
+            &:hover {
+              background-color: $CarminePink;
+            }
+            span {
+              margin-right: 10px;
+            }
+          }
+          a {
+            text-decoration: none;
+            cursor: pointer;
+            margin-left: 15px;
+            color: $CharlestonGreen;
+          }
+        }
+      }
+      &-bottom {
+        div {
+          @include Flex(flex, center, center);
+          column-gap: 20px;
+          button {
+            display: grid;
+            grid-template-columns: 0.5fr 1fr;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            height: 40px !important;
+            width: 140px;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            div {
+              border-right: 1px solid $BrightGray;
+              i {
+                grid-column: 0.5fr;
+                height: 100%;
+              }
+            }
+            span {
+              grid-column: 1fr;
+            }
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+          .face {
+            background-color: $SteelBlue;
+            div {
+              background-color: $SteelBlue;
+            }
+          }
+          .gg {
+            background-color: $Cinnabar;
+            div {
+              background-color: $Cinnabar;
+            }
+          }
+        }
+      }
+    }
+    &-right {
+      margin: 0px 10px 0px 10px;
+      h3 {
+        @include Size(1.5rem, 700, 25px);
+      }
+      div {
+        @include Size(1rem, 400, 30px);
+        color: $CharlestonGreen;
+        word-spacing: 1px;
+      }
+      button {
+        background-color: $CharlestonGreen;
+        text-transform: uppercase;
+        transition: all ease 0.3s;
+        cursor: pointer;
+        display: inline-block;
+        border: none;
+        color: white;
+        padding: 0 20px;
+        line-height: 40px;
+        &:hover {
+          background-color: $CarminePink;
+          border: none;
+        }
+        span {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

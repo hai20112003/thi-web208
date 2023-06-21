@@ -1,0 +1,63 @@
+<div>
+  <div class="breadCrumbs">
+    <p>Trang chủ</p>
+    <span class="line">Tất cả sản phẩm</span>
+  </div>
+  <div class="main">
+    <div class="homepage">
+      <div class="homepage-aside">
+        <app-model-menu-products />
+        <app-model-support />
+        <app-model-products-outstanding />
+        <app-advertisement />
+        <app-model-news />
+      </div>
+      <div class="homepage-main">
+        <div class="productsSale">
+          <div class="title">
+            <h2>Tất cả sản phẩm</h2>
+          </div>
+          <div class="arrange">
+            <p>Sắp xếp theo:</p>
+            <select name="" id="">
+              <option value="">Mặc định</option>
+              <option value="">Giá tăng dần</option>
+              <option value="">Giá giảm dần</option>
+              <option value="">Từ A-Z</option>
+              <option value="">Từ Z-A</option>
+            </select>
+          </div>
+          <div class="article">
+            <div *ngFor="let item of cardProducts | paginate: { itemsPerPage: 12, currentPage: p, totalItems: totalLength}" class="article-slider">
+              <div routerLink="{{item._id}}" class="image">
+                <img [src]="item.image" alt="" />
+              </div>
+              <p routerLink="{{item._id}}" class="content">{{ item.name }}</p>
+              <div class="price">
+                <p class="price-new">
+                  {{
+                    item.priceNew.toLocaleString("vi-VN", {
+                      style: "currency",
+                      currency: "VND"
+                    })
+                  }}
+                </p>
+                <p class="price-old" *ngIf="item.priceOld">
+                  {{
+                    item.priceOld.toLocaleString("vi-VN", {
+                      style: "currency",
+                      currency: "VND"
+                    })
+                  }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pagination pagination-custom">
+          <app-custom-pagination (pageChange)="p = $event"></app-custom-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="products">
+  <div class="title">
+    <div>
+      <span class="fa-solid fa-bars"></span>
+      <p>DANH MỤC SẢN PHẨM</p>
+    </div>
+  </div>
+  <div class="listMenu">
+    <div class="menu" *ngFor="let item of categories">
+      <div class="icon">
+        <i class="fa-solid fa-caret-right"></i>
+        <p>{{ item.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

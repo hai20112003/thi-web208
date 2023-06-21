@@ -1,0 +1,22 @@
+@import "../../../../public/scss/utils/functions.scss";
+@import "../../../../public/scss/utils/variables.scss";
+
+.pagination_container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  a {
+    cursor: pointer;
+    &:hover {
+      svg {
+        fill: $CarminePink;
+      }
+    }
+  }
+}
+
+.page__number {
+  color: $CarminePink;
+  cursor: pointer;
+}

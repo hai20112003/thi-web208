@@ -1,0 +1,29 @@
+<div class="product-add">
+  <h1>Thêm danh mục</h1>
+  <form
+    action=""
+    class="form"
+    [formGroup]="formCategory"
+    (ngSubmit)="onHandleSubmit()"
+  >
+    <div class="form-control">
+      <label for="">Tên:</label>
+      <input type="text" class="name" formControlName="name" />
+      <div></div>
+      <div
+        class="error"
+        *ngIf="
+          formCategory.get('name')?.hasError('required') &&
+          (formCategory.get('name')?.touched || formCategory.get('name')?.dirty)
+        "
+      >
+        Tên không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <div class="btn">
+        <input width="300px" class="btn-add" type="submit" value="Thêm" />
+      </div>
+    </div>
+  </form>
+</div>

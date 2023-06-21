@@ -1,0 +1,100 @@
+<div>
+  <div class="breadCrumbs">
+    <p>Trang chủ</p>
+    <span class="line">Đăng nhập</span>
+  </div>
+  <div class="login">
+    <div class="login-left">
+      <h3>ĐĂNG NHẬP TÀI KHOẢN</h3>
+      <form [formGroup]="formSignin" (ngSubmit)="onHandleSubmit()">
+        <div class="action">
+          <label for="">Email:</label>
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <div
+            class="error"
+            *ngIf="
+              formSignin.get('email')?.hasError('required') &&
+              (formSignin.get('email')?.touched ||
+                formSignin.get('email')?.dirty)
+            "
+          >
+            Email không được để trống
+          </div>
+          <div
+            class="error"
+            *ngIf="
+              formSignin.get('email')?.hasError('email') &&
+              (formSignin.get('email')?.touched ||
+                formSignin.get('email')?.dirty)
+            "
+          >
+            Email không đúng định dạng
+          </div>
+        </div>
+        <div class="action">
+          <label for="">Mật Khẩu:</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Mật Khẩu"
+            formControlName="password"
+          />
+          <div
+            class="error"
+            *ngIf="
+              formSignin.get('password')?.hasError('required') &&
+              (formSignin.get('password')?.touched ||
+                formSignin.get('password')?.dirty)
+            "
+          >
+            Mật khẩu không được để trống
+          </div>
+          <div
+            class="error"
+            *ngIf="
+              formSignin.get('password')?.hasError('minlength') &&
+              (formSignin.get('password')?.touched ||
+                formSignin.get('password')?.dirty)
+            "
+          >
+            Mật khẩu ít nhất 6 ký tự
+          </div>
+        </div>
+        <div>
+          <button class="btn" type="submit">
+            <span class="fa-solid fa-unlock-keyhole"></span>Đăng Nhập
+          </button>
+          <a href="#"> Quên Mật Khẩu?</a>
+        </div>
+      </form>
+      <div class="login-left-bottom">
+        <div>Hoặc đăng nhập bằng</div>
+        <div>
+          <button class="face" href="">
+            <div><i class="fa-brands fa-facebook"></i></div>
+            <span>Facebook</span>
+          </button>
+          <button class="gg" href="">
+            <div><i class="fa-brands fa-google"></i></div>
+            <span>Google</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="login-right">
+      <h3>TẠO TÀI KHOẢN MỚI</h3>
+      <div>
+        Đăng ký tài khoản ngay để có thể mua hàng nhanh chóng và dễ dàng hơn !
+        Ngoài ra còn có rất nhiều chính sách và ưu đãi cho các thành viên
+      </div>
+      <button [routerLink]="['/signup']" [queryParamsHandling]="'preserve'">
+        <span class="fa-solid fa-user"></span>Tạo tài khoản
+      </button>
+    </div>
+  </div>
+</div>

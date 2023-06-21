@@ -1,0 +1,125 @@
+<div class="main">
+  <div class="slider">
+    <div class="slider-show">
+      <div class="slides">
+        <input type="radio" name="radio-btn" id="radio1" />
+        <input type="radio" name="radio-btn" id="radio2" />
+        <input type="radio" name="radio-btn" id="radio3" />
+        <div class="slide first">
+          <img
+            src="https://bizweb.dktcdn.net/100/091/132/themes/877468/assets/slider_3_image.jpg?1676015131562"
+            alt=""
+          />
+        </div>
+        <div class="slide">
+          <img
+            src="https://bizweb.dktcdn.net/100/091/132/themes/877468/assets/slider_1_image.jpg?1676015131562"
+            alt=""
+          />
+        </div>
+        <div class="slide">
+          <img
+            src="https://bizweb.dktcdn.net/100/091/132/themes/877468/assets/slider_2_image.jpg?1676015131562"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="homepage">
+    <div class="homepage-aside">
+      <app-model-menu-products />
+      <app-model-support />
+      <app-model-products-outstanding />
+      <app-advertisement />
+      <app-model-news />
+    </div>
+    <div class="homepage-main">
+      <div class="products">
+        <div class="title">
+          <h2>Sản phẩm mới</h2>
+        </div>
+        <div class="article">
+          <div *ngFor="let item of first8Products" class="article-slider">
+            <div [routerLink]="['/products/', item._id]" class="image">
+              <img
+                src="{{item.image}}"
+                alt=""
+              />
+              <div class="tag">New</div>
+            </div>
+            <p [routerLink]="['/products/', item._id]" class="content">
+              {{ item.name }}
+            </p>
+            <div class="price">
+              <p class="price-new">
+                {{
+                  item.priceNew.toLocaleString("vi-VN", {
+                    style: "currency",
+                    currency: "VND"
+                  })
+                }}
+              </p>
+              <p class="price-old" *ngIf="item.priceOld">
+                {{
+                  item.priceOld.toLocaleString("vi-VN", {
+                    style: "currency",
+                    currency: "VND"
+                  })
+                }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="advertisement">
+        <img
+          src="https://bizweb.dktcdn.net/100/091/132/themes/877468/assets/large_banner_1.jpg?1676015131562"
+          alt=""
+        />
+      </div>
+      <div class="productsSale">
+        <div class="title">
+          <h2>Sản phẩm</h2>
+        </div>
+        <div class="article">
+          <div *ngFor="let item of first12Products" class="article-slider">
+            <div class="image" [routerLink]="['/products/', item._id]">
+              <img
+                src="{{item.image}}"
+                alt=""
+              />
+            </div>
+            <p class="content" [routerLink]="['/products/', item._id]">
+              {{ item.name }}
+            </p>
+            <div class="price">
+              <p class="price-new">
+                {{
+                  item.priceNew.toLocaleString("vi-VN", {
+                    style: "currency",
+                    currency: "VND"
+                  })
+                }}
+              </p>
+              <p class="price-old" *ngIf="item.priceOld">
+                {{
+                  item.priceOld.toLocaleString("vi-VN", {
+                    style: "currency",
+                    currency: "VND"
+                  })
+                }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="advertisement">
+        <img
+          src="https://bizweb.dktcdn.net/100/091/132/themes/877468/assets/large_banner_2.jpg?1676015131562"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</div>

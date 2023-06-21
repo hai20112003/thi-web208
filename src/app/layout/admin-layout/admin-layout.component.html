@@ -1,0 +1,70 @@
+<input type="checkbox" id="nav-toggle" />
+<div class="header-admin">
+  <div class="sidebar">
+    <div
+      class="sidebar-brand"
+      routerLink="/home"
+      [queryParamsHandling]="'preserve'"
+    >
+      <h1><span class="fas fa-desktop"></span> <span>Logo</span></h1>
+    </div>
+    <div class="sidebar-menu">
+      <ul>
+        <li>
+          <a href="/admin/dashboard">
+            <span class="fas fa-chart-line fa-sm icon"></span>
+            <span>Bảng điều khiển</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/products">
+            <span class="fas fa-clipboard-list fa-lg icon"></span>
+            <span>Sản phẩm</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/categories">
+            <span class="fa-solid fa-rectangle-list icon"></span>
+            <span>Danh mục</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/news">
+            <span class="fa-regular fa-newspaper"></span>
+            <span>Bài viết</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/users">
+            <span class="fas fa-users fa-sm icon"></span>
+            <span>Tài khoản</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main-content">
+    <header class="header-title">
+      <h2>
+        <label for="nav-toggle">
+          <span class="fas fa-bars"></span>
+        </label>
+      </h2>
+      <div class="header-title-user">
+        <img
+          src="https://w7.pngwing.com/pngs/340/956/png-transparent-profile-user-icon-computer-icons-user-profile-head-ico-miscellaneous-black-desktop-wallpaper-thumbnail.png"
+          width="40px"
+          height="40px"
+          alt=""
+        />
+        <div>
+          <h4>Admin: {{ userInfo.user.name }}</h4>
+          <small (click)="onHandleLogout()">Đăng xuất</small>
+        </div>
+      </div>
+    </header>
+    <main class="content">
+      <router-outlet />
+    </main>
+  </div>
+</div>

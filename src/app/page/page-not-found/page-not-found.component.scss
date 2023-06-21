@@ -1,0 +1,39 @@
+@import "../../../../public/scss/utils/functions.scss";
+@import "../../../../public/scss/utils/variables.scss";
+
+.pageNotFound {
+  background-color: #f7f7f7;
+  font-family: $Geologica;
+  .bg {
+    width: 100vw;
+    height: 100vh;
+    .content {
+      text-align: center;
+      position: relative;
+      .title1 {
+        @include Flex(flex, center, center);
+        @include Size(45em, 700, 50px);
+        padding-top: 20%;
+        color: #e7e7e8;
+        user-select: none;
+      }
+      .title2 {
+        @include Size(90px, 700, 50px);
+        color: #676973;
+      }
+    }
+    .home {
+      text-align: center;
+      margin-top: 21em;
+      a {
+        text-decoration: none;
+        color: $Azure;
+        width: fit-content;
+        cursor: pointer;
+        &:hover {
+          color: $CarminePink;
+        }
+      }
+    }
+  }
+}

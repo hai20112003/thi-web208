@@ -1,0 +1,47 @@
+<div class="product-content">
+  <h1>Bài Viết</h1>
+  <div class="action">
+    <button class="action-addProduct" routerLink="add">Thêm bài viết</button>
+    <div class="action-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="search" placeholder="Tìm kiếm ......" (input)="onSearchChange($event)"/>
+    </div>
+  </div>
+  <table border="0" class="table">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Tên bài viết</th>
+        <th>Ảnh</th>
+        <th>Tên tác giả</th>
+        <th>Ngày đăng</th>
+        <th>Mô tả</th>
+        <th>Chức năng</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="news && news.length">
+      <tr *ngFor="let news of news | paginate: { itemsPerPage: 10, currentPage: p, totalItems: totalLength}; index as i">
+        <td class="Id">{{ i + 1 }}</td>
+        <td>{{news.name}}</td>
+        <td>
+          <img width="100px" height="auto" [src]="news.image" alt="" />
+        </td>
+        <td>{{news.author}}</td>
+        <td>{{news.date}}</td>
+        <td>{{news.describe}}</td>
+        <td>
+          <button class="btn-sua" routerLink="{{news._id}}/edit">Sửa</button>
+          <button class="btn-xoa" (click)="confirmAndRemoveItem(news._id)">Xóa</button>
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="news && !news.length">
+      <tr>
+        <td colspan="6" class="no-results">Không tìm thấy kết quả</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination pagination-custom">
+    <app-custom-pagination (pageChange)="p = $event"></app-custom-pagination>
+  </div>
+</div>

@@ -1,0 +1,141 @@
+<div class="product-add">
+  <h1>Products Add</h1>
+  <form
+    action=""
+    class="form"
+    [formGroup]="formProduct"
+    (ngSubmit)="onHandleSubmit()"
+  >
+    <div class="form-control">
+      <label for="">Tên:</label>
+      <input type="text" class="name" formControlName="name" />
+      <div></div>
+      <div
+        class="error"
+        *ngIf="
+          formProduct.get('name')?.hasError('required') &&
+          (formProduct.get('name')?.touched || formProduct.get('name')?.dirty)
+        "
+      >
+        Tên không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="">Ảnh:</label>
+      <div class="form-control-file">
+        <label for="image">
+          <i class="fa-solid fa-download"></i>
+        </label>
+        <p class="value">{{ valueInput }}</p>
+        <div>
+          <input
+            name="image"
+            (input)="setValue($event)"
+            class="form-control-file-image"
+            id="image"
+            type="file"
+            formControlName="image"
+            accept="image/png, image/jpg, image/gif, image/jpeg"
+          />
+        </div>
+      </div>
+      <div
+        class="error"
+        *ngIf="
+          formProduct.get('image')?.hasError('required') &&
+          (formProduct.get('image')?.touched || formProduct.get('image')?.dirty)
+        "
+      >
+        Ảnh không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="">Giá mới:</label>
+      <input
+        type="number"
+        class="priceNew"
+        min="0"
+        formControlName="priceNew"
+      />
+      <div></div>
+      <div
+        class="error"
+        *ngIf="
+          formProduct.get('priceNew')?.hasError('required') &&
+          (formProduct.get('priceNew')?.touched ||
+            formProduct.get('priceNew')?.dirty)
+        "
+      >
+        Giá tiền mới không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="">Giá cũ:</label>
+      <input
+        type="number"
+        class="priceOld"
+        min="0"
+        formControlName="priceOld"
+      />
+    </div>
+    <div class="form-control">
+      <label for="">Số lượng:</label>
+      <input
+        type="number"
+        class="quantity"
+        min="0"
+        formControlName="quantity"
+      />
+      <div></div>
+      <div
+        class="error"
+        *ngIf="
+          formProduct.get('quantity')?.hasError('required') &&
+          (formProduct.get('quantity')?.touched ||
+            formProduct.get('quantity')?.dirty)
+        "
+      >
+        Số lượng không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="">Chi tiết:</label>
+      <textarea
+        name="description"
+        id=""
+        cols="30"
+        rows="10"
+        formControlName="description"
+      ></textarea>
+    </div>
+    <div class="form-control">
+      <label for="">Danh mục:</label>
+      <select
+        name="categoryId"
+        formControlName="categoryId"
+        id=""
+        *ngIf="data && data.length"
+      >
+        <option *ngFor="let item of data" value="{{ item._id }}">
+          {{ item.name }}
+        </option>
+      </select>
+      <div></div>
+      <div
+        class="error"
+        *ngIf="
+          formProduct.get('categoryId')?.hasError('required') &&
+          (formProduct.get('categoryId')?.touched ||
+            formProduct.get('categoryId')?.dirty)
+        "
+      >
+        Danh mục không được để trống
+      </div>
+    </div>
+    <div class="form-control">
+      <div class="btn">
+        <input width="300px" class="btn-add" type="submit" value="Thêm" />
+      </div>
+    </div>
+  </form>
+</div>

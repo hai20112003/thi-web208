@@ -1,0 +1,17 @@
+@import "../../../../public/scss/utils/functions.scss";
+@import "../../../../public/scss/utils/variables.scss";
+
+.advertisement {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  cursor: pointer;
+  img {
+    @include Flex(flex, center, center);
+    width: 100%;
+    transition: 0.5s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

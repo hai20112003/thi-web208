@@ -1,0 +1,47 @@
+<div class="product-content">
+  <h1>Products</h1>
+  <div class="action">
+    <button class="action-addProduct" routerLink="add">Add products</button>
+    <div class="action-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="search" placeholder="Search ......" (input)="onSearchChange($event)"/>
+    </div>
+  </div>
+  <table border="0" class="table">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Tên sản phảm</th>
+        <th>Ảnh</th>
+        <th>Giá mới</th>
+        <th>Giá cũ</th>
+        <th>Chức năng</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="products && products.length">
+      <tr *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p, totalItems: totalLength}; index as i">
+        <td class="Id">{{ i + 1 }}</td>
+        <td>{{ product.name }}</td>
+        <td>
+          <img width="100px" height="auto" [src]="product.image" alt="" />
+        </td>
+        <td>{{ product.priceNew }}</td>
+        <td>{{ product.priceOld }}</td>
+        <td>
+          <button class="btn-sua" routerLink="{{product._id}}/edit">Sửa</button>
+          <button class="btn-xoa" (click)="confirmAndRemoveItem(product._id)">
+            Xóa
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="products && !products.length">
+      <tr>
+        <td colspan="6" class="no-results">Không tìm thấy kết quả</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination pagination-custom">
+    <app-custom-pagination (pageChange)="p = $event"></app-custom-pagination>
+  </div>
+</div>

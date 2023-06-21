@@ -1,0 +1,317 @@
+@import "../../../../../public/scss/utils/functions.scss";
+@import "../../../../../public/scss/utils/variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  background-color: $Cultured;
+  font-family: $Geologica;
+  .slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    &-show {
+      max-width: 1200px;
+      height: 414px;
+      overflow: hidden;
+      @include max-screen($xxl) {
+        max-width: 870px;
+      }
+      @include max-screen($lg) {
+        margin: 30px;
+      }
+      @include max-screen($s) {
+        display: none;
+      }
+      .slides {
+        width: 500%;
+        height: 414px;
+        display: flex;
+        input {
+          display: none;
+        }
+        #radio1:checked ~ .first {
+          margin-left: 0;
+        }
+        #radio2:checked ~ .first {
+          margin-left: -20%;
+        }
+        #radio3:checked ~ .first {
+          margin-left: -40%;
+        }
+        .slide {
+          width: 20%;
+          transition: 1s;
+          img {
+            width: 1200px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+  .homepage {
+    @include Flex(flex, flex-start, flex-start);
+    @include Gap(30px, 30px);
+    padding: 20px 0;
+    max-width: 1200px;
+    margin: auto;
+    @include max-screen($xxl) {
+      @include Flex(flex, flex-start, center);
+      flex-direction: column-reverse;
+    }
+    &-aside {
+      max-width: 300px;
+      @include Flex(flex, center, flex-start);
+      @include Gap(30px, 30px);
+      flex-direction: column;
+      @include max-screen($xxl) {
+        display: none;
+      }
+      app-model-menu-products {
+        width: 100%;
+      }
+      app-model-support {
+        width: 100%;
+      }
+      app-model-products-outstanding {
+        width: 100%;
+      }
+      app-advertisement {
+        width: 100%;
+      }
+    }
+    &-main {
+      width: 100%;
+      @include Flex(flex, center, center);
+      @include Gap(30px, 30px);
+      flex-direction: column;
+      .products {
+        width: 100%;
+        @include max-screen($s) {
+          padding: 10px;
+        }
+        .title {
+          padding: 10px 15px;
+          background-color: white;
+          position: relative;
+          border-top: 2px solid $CarminePink;
+          width: 870px;
+          margin: 0 auto;
+          @include max-screen($lg) {
+            width: 570px;
+          }
+          @include max-screen($s) {
+            width: 370px;
+          }
+          h2 {
+            @include Size(1em, 600, 30px);
+            text-transform: uppercase;
+          }
+        }
+        .article {
+          display: flex;
+          justify-content: flex-start;
+          align-items: stretch;
+          max-width: 870px;
+          height: 320px;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          background-color: white;
+          margin: 0 auto;
+          @include max-screen($lg) {
+            width: 570px;
+          }
+          @include max-screen($s) {
+            width: 370px;
+          }
+          &-slider {
+            @include Flex(flex,space-between, flex-start );
+            flex-direction: column;
+            border: 1px solid $BrightGray;
+            border-left: 0;
+            width: 25%;
+            @include max-screen($lg) {
+              width: calc(100% / 3);
+            }
+            @include max-screen($s) {
+              width: calc(100% / 2);
+            }
+            .image {
+              position: relative;
+              cursor: pointer;
+              img {
+                width: 187px;
+                margin: 15px;
+                @include max-screen($lg) {
+                  width: 160px;
+                }
+              }
+              .tag {
+                @include Size(13px, 400, 18px);
+                background-color: #fbbf22;
+                width: fit-content;
+                color: white;
+                padding: 5px;
+                position: absolute;
+                border-radius: 6px;
+                top: 15px;
+                right: 15px;
+              }
+            }
+            .content {
+              @include Size(14px, 400, 20px);
+              color: #333;
+              margin: 0 15px;
+              cursor: pointer;
+              &:hover {
+                color: $CarminePink;
+              }
+            }
+            .price {
+              @include Flex(flex, space-between, center);
+              @include Gap(5px, 0);
+              padding: 15px;
+              &-new {
+                @include Size(18px, 700, 20px);
+                color: $CarminePink;
+                &::after {
+                  @include Size(18px, 700, 20px);
+                  color: $CarminePink;
+                }
+              }
+              &-old {
+                @include Size(16px, 400, 20px);
+                text-decoration: line-through;
+                color: #ababab;
+                &::after {
+                  @include Size(16px, 400, 20px);
+                  color: #ababab;
+                }
+              }
+            }
+          }
+        }
+      }
+      .advertisement {
+        width: 870px;
+        height: auto;
+        overflow: hidden;
+        cursor: pointer;
+        margin: 0 auto;
+        @include max-screen($lg) {
+          width: 570px;
+        }
+        @include max-screen($s) {
+          width: 370px;
+        }
+        img {
+          @include Flex(flex, center, center);
+          width: 100%;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+      .productsSale {
+        .title {
+          padding: 10px 15px;
+          background-color: white;
+          position: relative;
+          border-top: 2px solid $CarminePink;
+          max-width: 870px;
+          margin: 0 auto;
+          @include max-screen($lg) {
+            width: 570px;
+          }
+          @include max-screen($s) {
+            width: 370px;
+          }
+          h2 {
+            @include Size(1em, 600, 30px);
+            text-transform: uppercase;
+          }
+        }
+
+        .article {
+          @include Gird(grid, 4);
+          width: 870px;
+          margin: 0 auto;
+          background-color: white;
+          @include max-screen($lg) {
+            @include Gird(grid, 3);
+            width: 570px;
+          }
+          @include max-screen($s) {
+            @include Gird(grid, 2);
+            width: 370px;
+          }
+          &-slider {
+            @include Flex(flex,space-between, flex-start );
+            flex-direction: column;
+            border: 1px solid $BrightGray;
+            width: 100%;
+            .image {
+              position: relative;
+              cursor: pointer;
+              img {
+                width: 187px;
+                margin: 15px;
+                @include max-screen($lg) {
+                  width: 160px;
+                }
+              }
+              .tag {
+                @include Size(13px, 400, 18px);
+                background-color: #fbbf22;
+                width: fit-content;
+                color: white;
+                padding: 5px;
+                position: absolute;
+                border-radius: 6px;
+                top: 15px;
+                right: 15px;
+              }
+            }
+            .content {
+              @include Size(14px, 400, 20px);
+              color: #333;
+              margin: 0 15px;
+              cursor: pointer;
+              &:hover {
+                color: $CarminePink;
+              }
+            }
+            .price {
+              @include Flex(flex, space-between, center);
+              @include Gap(5px, 0);
+              padding: 15px;
+              &-new {
+                @include Size(18px, 700, 20px);
+                color: $CarminePink;
+                &::after {
+                  @include Size(18px, 700, 20px);
+                  color: $CarminePink;
+                }
+              }
+              &-old {
+                @include Size(16px, 400, 20px);
+                text-decoration: line-through;
+                color: #ababab;
+                &::after {
+                  @include Size(16px, 400, 20px);
+                  color: #ababab;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+@import "./../../../../../../public/scss/utils/functions.scss";
+@import "./../../../../../../public/scss/utils/variables.scss";
+
+.product-content {
+  font-family: $Geologica;
+  margin-top: 70px;
+  h1 {
+    @include Size(3em, 400, 50px);
+  }
+  .action {
+    @include Flex(flex, flex-start, center);
+    @include Gap(10%, 0);
+    &-addProduct {
+      @include Size(1em, 400, 20px);
+      padding: 1rem 1rem;
+      background-color: $Keppel;
+      color: white;
+      border: 1px solid $Keppel;
+      border-radius: 30px;
+      height: 100%;
+      box-shadow: 0 3px 3px 3px rgb(0 0 0/5%);
+      cursor: pointer;
+      &:hover {
+        background-color: $MiddleBlueGreen;
+      }
+    }
+    &-search {
+      @include Flex(flex, center, center);
+      width: 30%;
+      border: 2px solid $AntiFlashWhite;
+      border-radius: 30px;
+      height: 50px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 3px 3px 3px rgb(0 0 0/5%);
+      input {
+        @include Size(1em, 400, 20px);
+        width: 100%;
+        height: 100%;
+        padding: 0.5rem;
+        border: none;
+        outline: none;
+      }
+      i {
+        font-size: 1.5rem;
+        padding: 0rem 1rem;
+      }
+    }
+    @include max-screen($sm) {
+      &-search {
+        width: 50%;
+      }
+    }
+  }
+  .table {
+    border: 0px;
+    border-collapse: collapse;
+    margin: 40px auto;
+    width: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    thead {
+      tr {
+        background-color: $ElectricBlue;
+        font-size: 1.2rem;
+        margin: 0;
+        text-align: left;
+        border-bottom: 1px solid $ElectricBlue;
+        th {
+          padding: 18px 21px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid $Gainsboro;
+        td {
+          font-size: 1rem;
+          padding: 12px 15px;
+          button {
+            border-radius: 5px;
+            border: 0.5rem;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            margin-right: 0.5rem;
+          }
+          .btn-sua {
+            background-color: $Keppel;
+            color: white;
+            cursor: pointer;
+            &:hover {
+              background-color: $MiddleBlueGreen;
+            }
+          }
+          .btn-xoa {
+            background-color: $PastelRed;
+            color: white;
+            cursor: pointer;
+            &:hover {
+              background-color: $LightSalmonPink;
+            }
+          }
+        }
+      }
+      tr:last-of-type {
+        border-bottom: 2px solid $ElectricBlue;
+      }
+    }
+    @include max-screen($sm) {
+      width: 100%;
+      thead {
+        tr {
+          display: none;
+        }
+      }
+      tbody {
+        tr {
+          &:nth-child(odd) {
+            background-color: $ElectricBlue;
+          }
+          td {
+            display: flex;
+            border: none;
+            border-bottom: 1px solid $Keppel;
+            &::before {
+              width: 45%;
+              padding-right: 10px;
+              white-space: nowrap;
+            }
+            &:nth-of-type(1)::before {
+              content: "STT";
+              width: 30%;
+            }
+            &:nth-of-type(2)::before {
+              content: "Name";
+              width: 30%;
+            }
+            &:nth-of-type(3)::before {
+              content: "Image";
+              width: 30%;
+            }
+            &:nth-of-type(4)::before {
+              content: "Price";
+              width: 30%;
+            }
+            &:nth-of-type(5)::before {
+              content: "Action";
+              width: 30%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .pagination-custom {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="news">
+  <div class="title">
+    <div>
+      <div>TIN TỨC</div>
+      <div class="btn">
+        <button class="left" (click)="left()">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="right" (click)="right()">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="article-slider">
+    <div class="article-slider-show">
+      <div class="article-slider-show-slides">
+        <input type="radio" name="article-radio-btn1" id="news1" />
+        <input type="radio" name="article-radio-btn1" id="news2" />
+        <input type="radio" name="article-radio-btn1" id="news3" />
+        <div
+          *ngFor="let item of modelNews; let i = index"
+          [ngClass]="['article', i + 1 === 1 ? 'article-slide' : '']"
+          [routerLink]="['/news/', item._id]"
+        >
+          <img [src]="item.image" alt="" />
+          <p class="article-title">{{ item.name }}</p>
+          <div class="article-detail">
+            <div class="article-detail-user">
+              <i class="fa-solid fa-user"></i>
+              <p class="name-user">{{ item.author }}</p>
+            </div>
+            <div class="article-detail-date">
+              <i class="fa-regular fa-calendar-days"></i>
+              <p class="date">{{ item.date }}</p>
+            </div>
+          </div>
+          <div class="article-content">
+            {{ item.describe }}
+          </div>
+          <p class="next"><a href="">[Đọc tiếp...]</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

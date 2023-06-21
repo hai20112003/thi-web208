@@ -1,0 +1,526 @@
+@import "../../../../../../public/scss/utils/functions.scss";
+@import "../../../../../../public/scss/utils/variables.scss";
+
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header {
+  border-bottom: 1px solid $BrightGray;
+  @include max-screen($sm) {
+    display: none;
+  }
+  .header-topbar {
+    @include max-screen($lg) {
+      @include Flex(flex, space-evenly, center);
+    }
+    @include max-screen($xxl) {
+      @include Flex(flex, flex-end, center);
+      padding: 0 30px;
+    }
+    @include Flex(flex, space-between, center);
+    max-width: 1200px;
+    margin: 0 auto;
+    &-left {
+      p {
+        @include Size(12px, 400, 32px);
+        color: $PhilippineGray;
+        margin: 0;
+        font-family: $Geologica;
+      }
+      @include max-screen($xxl) {
+        display: none;
+      }
+    }
+    &-right {
+      @include Flex(flex, "", center);
+      span {
+        padding: 12px;
+        color: $DarkSilver;
+        border: 1px solid $BrightGray;
+        transition: background-color 0.1s ease-in-out;
+        cursor: pointer;
+      }
+      .fa-facebook-f {
+        font-size: 15px;
+        padding: 10px 14px;
+        &:hover {
+          background-color: $SteelBlue;
+          color: white;
+        }
+      }
+      .fa-twitter {
+        font-size: 15px;
+        padding: 10px 12px;
+        &:hover {
+          background-color: $Azure;
+          color: white;
+        }
+      }
+      .fa-google-plus-g {
+        font-size: 15px;
+        padding: 10px 10px;
+        &:hover {
+          background-color: $Cinnabar;
+          color: white;
+        }
+      }
+    }
+  }
+}
+.nav {
+  margin: 10px;
+  font-family: $Geologica;
+  &-row {
+    @include Flex(flex, space-around, flex-end);
+    max-width: 1200px;
+    margin: 0 auto;
+    @include max-screen($xxl) {
+      @include Flex(flex, space-between, center);
+      padding: 0 30px;
+    }
+    @include max-screen($sm) {
+      @include Flex(flex, center, center);
+    }
+    &-left {
+      cursor: pointer;
+    }
+    &-center {
+      @include max-screen($xxl) {
+        display: none;
+      }
+      margin: 5px 12px 12px 12px;
+      &-ul {
+        @include Flex(flex, flex-start, center);
+        column-gap: 10px;
+        list-style: none;
+        padding: 0;
+        .title {
+          @include Size(1em, 400, 20px);
+          color: red;
+        }
+        .li {
+          @include Size(1em, 400, 20px);
+          a {
+            color: $DarkSilver;
+            text-decoration: none;
+            font-family: $Geologica;
+            &:hover {
+              color: $CarminePink;
+            }
+          }
+        }
+      }
+      &-form {
+        .row-center-form-content {
+          @include Flex(flex, center, center);
+          position: relative;
+          .form-content-input {
+            border: 1px solid $CarminePink;
+            border-right: 0;
+            width: 478px;
+            height: 51px;
+            outline: none;
+            padding-left: 10px;
+            &::placeholder {
+              @include Size(1em, 400, 48px);
+            }
+          }
+          .form-content-btn {
+            border-radius: none;
+            background-color: $CarminePink;
+            border: 0;
+            color: white;
+            width: 76px;
+            height: 51px;
+            cursor: pointer;
+            &:hover {
+              color: black;
+            }
+          }
+          span {
+            position: absolute;
+            top: 0;
+            right: 70px;
+            border-top: 25px solid transparent;
+            border-right: 20px solid $CarminePink;
+            border-bottom: 25px solid transparent;
+          }
+        }
+      }
+    }
+    &-right {
+      @include Flex(flex, center, center);
+      column-gap: 40px;
+      @include max-screen($sm) {
+        display: none;
+      }
+      &-signupin {
+        @include Flex(flex, center, center);
+        flex-direction: column;
+        &-logo {
+          text-align: center;
+        }
+        &-text {
+          @include Flex(flex, center, center);
+          column-gap: 5px;
+          list-style: none;
+          padding: 0px;
+          a {
+            @include Size(13px, 400, 1.7);
+            color: $DarkSilver;
+            text-decoration: none;
+            font-family: $Geologica;
+            &:hover {
+              color: $CarminePink;
+            }
+          }
+          .logout{
+            cursor: pointer;
+          }
+          .user{
+            cursor: default;
+            pointer-events: none;
+          }
+          span {
+            @include Size(13px, 400, 1.7);
+            color: $DarkSilver;
+          }
+        }
+      }
+      &-cart {
+        cursor: pointer;
+        &-logo {
+          position: relative;
+          width: fit-content;
+          margin-left: 10px;
+          .fa-cart-shopping {
+            font-size: 20px;
+            color: black;
+            border: 1px solid black;
+            border-radius: 50%;
+            padding: 9px 8px 6px 6px;
+          }
+          p {
+            @include Flex(flex, center, center);
+            position: absolute;
+            color: white;
+            top: -10px;
+            right: -10px;
+            background-color: $CarminePink;
+            padding: 3px 8px;
+            border-radius: 50%;
+          }
+        }
+      }
+      &-text {
+        @include Flex(flex, center, center);
+        padding: 0px;
+        list-style: none;
+        a {
+          @include Size(12px, 400, 32px);
+          color: $DarkSilver;
+          text-decoration: none;
+          font-family: $Geologica;
+          &:hover {
+            color: $CarminePink;
+          }
+        }
+      }
+    }
+  }
+}
+.menu {
+  border: 1px dashed white;
+  background-color: $CarminePink;
+  @include Flex(flex, space-between, center);
+  .mobie-toggle {
+    display: none;
+    color: white;
+    text-align: left;
+    margin: 0px;
+    width: fit-content;
+    cursor: pointer;
+    @include max-screen($xxl) {
+      display: block;
+      padding: 10px 30px 8px 30px;
+    }
+    .fa-bars:checked {
+      height: 100px;
+      transition: 0.5;
+    }
+  }
+  #menu {
+    display: none;
+    &:checked + .nav {
+      div {
+        ul {
+          max-height: 300px;
+          li {
+            &:hover {
+              .fa-bars {
+                color: $CarminePink;
+              }
+              a {
+                color: $CarminePink;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .nav {
+    min-width: 1200px;
+    margin: 0 auto;
+    @include max-screen($xxl) {
+      min-width: 0;
+    }
+    div {
+      @include Flex(flex, space-between, center);
+      ul {
+        @include Flex(flex, flex-start, center);
+        background-color: $CarminePink;
+        margin: 0;
+        .line {
+          border: 0;
+        }
+        li {
+          @include Flex(flex, center, center);
+          list-style: none;
+          position: relative;
+          padding: 14px 15px;
+          border-left: 1px solid $Platinum;
+          cursor: pointer;
+          &:hover {
+            background-color: $Cinnabar;
+            .header-menu-child {
+              display: block;
+              z-index: 1;
+            }
+          }
+          a {
+            @include Size(12px, 400, 30px);
+            margin: 1px 2px 1px 0px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+            font-family: $Geologica;
+          }
+          .fa-house {
+            margin-right: 6px;
+            font-size: 12px;
+            line-height: 30px;
+            color: white;
+          }
+          .fa-caret-down {
+            margin-left: 4px;
+            font-size: 12px;
+            line-height: 30px;
+            color: white;
+          }
+          .header-menu-child {
+            display: none;
+            position: absolute;
+            top: 58px;
+            left: 0;
+            &-list {
+              @include Flex(flex, center, flex-start);
+              flex-direction: column;
+              width: 200px;
+              padding: 0;
+              background-color: white;
+              border: 1px solid rgba(0, 0, 0, 0.15);
+              box-shadow: 0 3px 20px 5px #ebebeb;
+              .li {
+                @include Flex(flex, space-between, center);
+                width: 100%;
+                border: 0;
+                padding: 12px;
+                border-bottom: 1px dashed $BrightGray;
+                cursor: pointer;
+                position: relative;
+                &:hover {
+                  background-color: white;
+                  a {
+                    color: $CarminePink;
+                  }
+
+                  .fa-caret-down {
+                    color: $CarminePink;
+                  }
+                  .list-child {
+                    display: block;
+                  }
+                }
+                .list-child {
+                  display: none;
+                  position: absolute;
+                  left: 198px;
+                  top: 0;
+                  z-index: 1;
+                  &-ul {
+                    @include Flex(flex, center, flex-start);
+                    flex-direction: column;
+                    background-color: white;
+                    width: 200px;
+                    border: 1px solid rgba(0, 0, 0, 0.15);
+                    box-shadow: 0 3px 20px 5px #ebebeb;
+                    li {
+                      @include Flex(flex, flex-start, center);
+                      width: 100%;
+                      border-bottom: 1px dashed $BrightGray;
+                      &:hover {
+                        background-color: white;
+                        a {
+                          color: $CarminePink;
+                        }
+                      }
+                      a {
+                        color: black;
+                      }
+                    }
+                  }
+                }
+                a {
+                  color: black;
+                  text-transform: none;
+                }
+                .fa-caret-down {
+                  color: black;
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+        @include max-screen($xxl) {
+          flex-direction: column;
+          background-color: white;
+          max-height: 0px;
+          overflow: hidden;
+          position: absolute;
+          width: 100%;
+          z-index: 1;
+          top: 180px;
+          left: 0;
+          transition: max-height 0.5s ease-in-out;
+          box-shadow: 0 6px 20px 5px #ebebeb;
+          .line {
+            @include Flex(flex, flex-start, center);
+            border-bottom: 1px solid $BrightGray;
+            i {
+              display: none;
+            }
+          }
+          li {
+            @include Flex(flex, space-between, center);
+            border-bottom: 1px solid $BrightGray;
+            width: 100%;
+            padding: 5px 15px;
+            &:hover {
+              background-color: white;
+            }
+            .fa-house {
+              color: black;
+            }
+            .fa-caret-down {
+              color: black;
+            }
+            a {
+              @include Size(12px, 400, 30px);
+              color: black;
+            }
+          }
+        }
+        @include max-screen($sm) {
+          top: 165px;
+        }
+      }
+      .nav-contact {
+        @include Flex(flex, flex-end, center);
+        column-gap: 10px;
+        margin: 0;
+        @include max-screen($xxl) {
+          display: none;
+        }
+        .fa-phone-volume {
+          color: white;
+        }
+        a {
+          text-decoration: none;
+          color: white;
+          font-family: $Geologica;
+        }
+      }
+    }
+  }
+  .nav-row-right-cart {
+    display: none;
+    padding: 10px 30px 8px 30px;
+
+    @include max-screen($sm) {
+      display: block;
+    }
+    &-logo {
+      .fa-cart-shopping {
+        border-color: white;
+        color: white;
+      }
+      p {
+        border: 1px solid white;
+      }
+    }
+  }
+}
+.mobie-input {
+  @include Flex(flex, space-between, center);
+  padding: 10px 15% 0 15%;
+  margin: 0px;
+  width: 100%;
+  background-color: $Cultured;
+  @include min-screen($xxl) {
+    display: none;
+  }
+  @include max-screen($sm) {
+    width: 100%;
+  }
+  .mobie-tk {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    @include max-screen($sm) {
+      margin-right: 8px;
+      margin-left: 2px;
+    }
+    .search {
+      width: 86%;
+      border: 0.5px solid $CarminePink;
+      padding-left: 10px;
+      outline: none;
+    }
+    .btn-search {
+      border: 0;
+      padding: 6px 10px;
+      background-color: $CarminePink;
+      cursor: pointer;
+      &:focus {
+        .fa-magnifying-glass {
+          color: black;
+        }
+      }
+      .fa-magnifying-glass {
+        margin-top: 2px;
+        color: white;
+      }
+    }
+  }
+  .mobie-hotline {
+    .fa-phone-volume {
+      margin-top: 5px;
+      cursor: pointer;
+      color: $CarminePink;
+    }
+  }
+}

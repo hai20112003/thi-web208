@@ -1,0 +1,138 @@
+@import "./../../../../../../public/scss/utils/functions.scss";
+@import "./../../../../../../public/scss/utils/variables.scss";
+
+.product-add {
+  font-family: $Geologica;
+  margin-top: 70px;
+  h1 {
+    @include Size(3em, 400, 50px);
+  }
+  .form {
+    margin-top: 3rem;
+    &-control {
+      display: grid;
+      grid-template-columns: 0.5fr 2fr;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      label {
+        @include Size(1em, 500, 20px);
+        grid-column: 0.5;
+        text-align: right;
+        margin-right: 1rem;
+      }
+      input,
+      select {
+        @include Size(1em, 500, 20px);
+        grid-column: 2;
+        padding: 0.6rem 0.5rem 0.6rem 1rem;
+        width: 50%;
+        border: 0.1rem solid;
+        border-radius: 5px;
+      }
+      select {
+        cursor: pointer;
+      }
+      textarea {
+        @include Size(1em, 500, 20px);
+        grid-column: 2;
+        padding: 0.6rem 0.5rem 0.6rem 1rem;
+        border: 0.1rem solid;
+        border-radius: 5px;
+        font-family: $Geologica;
+      }
+      .btn {
+        grid-column: 2;
+        &-add {
+          width: 100px;
+          background-color: #45a29e;
+          border: 1px solid #45a29e;
+          text-align: center;
+          padding: 0.5rem 0.5rem;
+          border-radius: 30px;
+          color: white;
+          font-size: 1rem;
+          box-shadow: 0 3px 3px 3px rgb(0 0 0/5%);
+          cursor: pointer;
+          &:hover {
+            background-color: #97cdcd;
+            border: 1px solid #97cdcd;
+          }
+        }
+      }
+      .error {
+        color: red;
+        margin-top: 10px;
+      }
+      &-file {
+        width: 50%;
+        div {
+          display: none;
+        }
+        label {
+          border: 1px solid #97cdcd;
+          width: 100%;
+          word-wrap: break-word;
+          padding: 0.5rem 3rem 0.5rem 3rem;
+          align-items: center;
+          border-radius: 30px;
+          background-color: aquamarine;
+          cursor: pointer;
+          i {
+            font-size: 1rem;
+          }
+        }
+        .value {
+          margin-top: 10px;
+        }
+      }
+    }
+    @include max-screen($s) {
+      &-control {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        label {
+          font-size: 1rem;
+          font-weight: 500;
+          text-align: left;
+          margin-right: 1rem;
+          margin-bottom: 0.5rem;
+        }
+        input,
+        select {
+          font-size: 1rem;
+          padding: 0.6rem 0.5rem 0.6rem 1rem;
+          width: 80%;
+          border: 0.1rem solid;
+          border-radius: 5px;
+        }
+        textarea {
+          grid-column: 2;
+          font-size: 1rem;
+          padding: 0.6rem 0.5rem 0.6rem 1rem;
+          border: 0.1rem solid;
+          border-radius: 5px;
+        }
+        .btn {
+          grid-column: 2;
+          &-add {
+            width: 100px;
+            background-color: #45a29e;
+            border: 1px solid #45a29e;
+            text-align: center;
+            padding: 0.5rem 0.5rem;
+            border-radius: 30px;
+            color: white;
+            font-size: 1rem;
+            box-shadow: 0 3px 3px 3px rgb(0 0 0/5%);
+            &:hover {
+              background-color: #97cdcd;
+              border: 1px solid #97cdcd;
+            }
+          }
+        }
+      }
+    }
+  }
+}
